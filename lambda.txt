@@ -1,0 +1,18 @@
+fun main() {
+
+    val filterLambda = { x: Int -> x < 2 }
+    val filterLambdaTwoNumbers = { x: Int, y: Int -> x < y }
+    val filterLambdaKotlin: (Int) -> Boolean = { it < 2 }
+    println(filterLambda(3))
+    println(filterLambdaTwoNumbers(5, 4))
+    println(filterLambdaKotlin(3))
+
+}
+
+fun filterToLambda(x: Int): Boolean {
+    return x < 2
+}
+
+fun filterToLambdaTwoNumbers(x: Int, y: Int): Boolean {
+    return x < y
+}

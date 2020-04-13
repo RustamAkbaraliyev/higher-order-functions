@@ -1,0 +1,45 @@
+fun main() {
+
+    val filterLambda = { x: Int -> x < 2 }
+    val filterAnonymous = fun(x: Int): Boolean = x < 2
+    val filterExisting = ::existing
+
+    println(doWork(1, filterLambda))
+    println(doWork(1, filterAnonymous))
+    println(doWork(1, filterExisting))
+
+    println(doWork(3) {
+        it < 2
+    })
+
+    println(doAnonymous()(2))
+    println(doLambda()(2))
+    println(doExisting()(1))
+}
+
+fun existing(x: Int): Boolean = x < 2
+
+
+fun doWork(x: Int, filter: (Int) -> Boolean): Boolean {
+    return filter(x)
+}
+
+fun doAnonymous(): (Int) -> Boolean {
+    return fun(x: Int): Boolean = x < 2
+}
+
+fun doLambda(): (Int) -> Boolean {
+    return { x: Int -> x < 2 }
+}
+
+fun doExisting(): (Int) -> Boolean {
+    return ::existing
+}
+
+
+
+
+
+
+
+
